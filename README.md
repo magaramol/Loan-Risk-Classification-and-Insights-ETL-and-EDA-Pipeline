@@ -1,4 +1,3 @@
-
 # Loan Risk Classification and Insights: ETL and EDA Pipeline
 
 ## Overview
@@ -50,20 +49,14 @@ The dataset was preprocessed by:
 
 ## Data Analysis and Visualization
 The project uses Seaborn and Matplotlib to visualize:
-1. **Risk Label Distribution**: Displays the distribution of borrowers across risk levels.
-2. **Ticket Size Distribution**: Shows the segmentation of borrowers into different ticket sizes.
-3. **Tenure Label Distribution**: Visualizes borrowers by their tenure stages.
-
-### Visualizations
-
-1. **Borrowers by Ticket Size:**
-   ![Borrowers by Ticket Size](\Loan-Risk-Classification-and-Insights-ETL-and-EDA-Pipeline\IMG\Borrowers by Ticket Size.png)
-
-2. **Borrowers by Tenure:**
-   ![Borrowers by Tenure](\Loan-Risk-Classification-and-Insights-ETL-and-EDA-Pipeline\IMG\Borrowers by Tenure.png)
-
-3. **Borrowers by Risk Label:**
-   ![Borrowers by Risk Label](\Loan-Risk-Classification-and-Insights-ETL-and-EDA-Pipeline\IMG\Borrowers by Risk Label.png)
+1. **Risk Label Distribution**:
+   ![Borrowers by Risk Label](IMG/Borrowers%20by%20Risk%20Label.png)
+   
+2. **Ticket Size Distribution**:
+   ![Borrowers by Ticket Size](IMG/Borrowers%20by%20Ticket%20Size.png)
+   
+3. **Tenure Label Distribution**:
+   ![Borrowers by Tenure](IMG/Borrowers%20by%20Tenure.png)
 
 ## Database Integration
 Data is loaded into a MySQL database, with schema creation and data storage using `mysql.connector` and SQLAlchemy. The database integration follows these steps:
@@ -154,17 +147,17 @@ df['spend_channel'] = df.apply(recommend_channel, axis=1)
 plt.figure(figsize=(10, 6))
 sns.countplot(data=df, x='risk_label')
 plt.title('Distribution of Borrowers by Risk Label')
-plt.show()
+plt.savefig('IMG/Borrowers by Risk Label.png')
 
 plt.figure(figsize=(10, 6))
 sns.countplot(data=df, x='ticket_size')
 plt.title('Distribution of Borrowers by Ticket Size')
-plt.show()
+plt.savefig('IMG/Borrowers by Ticket Size.png')
 
 plt.figure(figsize=(10, 6))
 sns.countplot(data=df, x='tenure_label')
 plt.title('Distribution of Borrowers by Tenure')
-plt.show()
+plt.savefig('IMG/Borrowers by Tenure.png')
 
 # Additional feature engineering
 df['total_bounces'] = df['bounce_string'].apply(lambda x: x.count('B') + x.count('L'))
@@ -210,5 +203,3 @@ conn.commit()
 engine = create_engine("mysql+pymysql://userName:password@db_url/db_name")
 df.to_sql('dpd', con=engine)
 ```
-
-
