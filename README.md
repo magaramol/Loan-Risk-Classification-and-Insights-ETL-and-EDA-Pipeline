@@ -54,6 +54,17 @@ The project uses Seaborn and Matplotlib to visualize:
 2. **Ticket Size Distribution**: Shows the segmentation of borrowers into different ticket sizes.
 3. **Tenure Label Distribution**: Visualizes borrowers by their tenure stages.
 
+### Visualizations
+
+1. **Borrowers by Ticket Size:**
+   ![Borrowers by Ticket Size](\Loan-Risk-Classification-and-Insights-ETL-and-EDA-Pipeline\IMG\Borrowers by Ticket Size.png)
+
+2. **Borrowers by Tenure:**
+   ![Borrowers by Tenure](\Loan-Risk-Classification-and-Insights-ETL-and-EDA-Pipeline\IMG\Borrowers by Tenure.png)
+
+3. **Borrowers by Risk Label:**
+   ![Borrowers by Risk Label](\Loan-Risk-Classification-and-Insights-ETL-and-EDA-Pipeline\IMG\Borrowers by Risk Label.png)
+
 ## Database Integration
 Data is loaded into a MySQL database, with schema creation and data storage using `mysql.connector` and SQLAlchemy. The database integration follows these steps:
 1. Create the database.
@@ -199,3 +210,5 @@ conn.commit()
 engine = create_engine("mysql+pymysql://userName:password@db_url/db_name")
 df.to_sql('dpd', con=engine)
 ```
+
+
